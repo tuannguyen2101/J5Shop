@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/site/dashboardLayout.html}">
+
+<head>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var render = new FileReader();
+                render.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                render.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <div class="container my-5 py-5">
+            <!-- Section: Design block -->
+            <section class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <!-- Gallery -->
+                        <div class="ecommerce-gallery vertical" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="lightbox">
+                                        <img id="image"
+                                            th:src="${product.image != null ? '/admin/products/images/' + product.image : '/images/no-image.png'}"
+                                            class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gallery -->
+                    </div>
+
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <!-- Details -->
+                        <div>
+                            <h1 class="fw-bold mb-3 h5" th:text="${product.name}"></h1>
+                            <p class="mb-2 text-uppercase small">Dresses</p>
+
+                            <h5 class="mb-3">
+                                <span class="align-middle">$101</span>
+                            </h5>
+
+                            <p class="text-muted" th:text="${product.description}"></p>
+
+                            <div class="table-responsive">
+                                <table class="table table-sm table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>available</strong>
+                                            </th>
+                                            <td th:text="${product.quantity + 'item'}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>Material</strong>
+                                            </th>
+                                            <td>Cotton 80%</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>Delivery</strong>
+                                            </th>
+                                            <td>USA, Europe</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <hr class="my-5" />
+
+                            <form action="">
+                                <div class="row">
+                                    <!-- Quantity -->
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label for="">Quantity</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-rounded me-2">
+                                    <i class="fas fa-cart-plus me-2"></i>Add to cart
+                                </button>
+                                <button href="#!" type="button" class="btn btn-danger btn-floating"
+                                    data-mdb-toggle="tooltip" title="Add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- Details -->
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Design block -->
+
+        </div>
+
+        </main>
+    </section>
+</body>
+
+</html>

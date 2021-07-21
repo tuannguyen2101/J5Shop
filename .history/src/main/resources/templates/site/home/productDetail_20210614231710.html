@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/site/dashboardLayout.html}">
+
+<head>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var render = new FileReader();
+                render.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                render.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <main>
+
+            <div class="container my-5 py-5">
+
+                <!-- Section: Design block -->
+                <section class="">
+                    <div class="row gx-lg-5">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <!-- Gallery -->
+                            <div class="ecommerce-gallery vertical" data-mdb-zoom-effect="true"
+                                data-mdb-auto-height="true">
+                                <div class="row gx-2 gx-lg-3">
+                                    <div class="col-12 col-lg-9">
+                                        <div class="lightbox">
+                                            <img src="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
+                                                alt="Gallery image 1"
+                                                class="ecommerce-gallery-main-img active w-100 rounded-4" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Gallery -->
+                        </div>
+
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <!-- Details -->
+                            <div>
+                                <h1 class="fw-bold mb-3 h5">Sophisticated dress</h1>
+                                <a href="" class="text-muted mb-3">
+                                    <p class="mb-2 text-uppercase small">Dresses</p>
+                                </a>
+
+                                <div class="d-flex text-primary">
+                                    <ul class="rating mb-3 me-2" data-mdb-toggle="rating" data-mdb-readonly="true"
+                                        data-mdb-value="4">
+                                        <li>
+                                            <i class="far fa-star fa-sm text-primary ps-0" title="Bad"></i>
+                                        </li>
+                                        <li>
+                                            <i class="far fa-star fa-sm text-primary" title="Poor"></i>
+                                        </li>
+                                        <li>
+                                            <i class="far fa-star fa-sm text-primary" title="OK"></i>
+                                        </li>
+                                        <li>
+                                            <i class="far fa-star fa-sm text-primary" title="Good"></i>
+                                        </li>
+                                        <li>
+                                            <i class="far fa-star fa-sm text-primary" title="Excellent"></i>
+                                        </li>
+                                    </ul>
+                                    <a href=""><strong class="me-2">4/5</strong>(123 reviews)</a>
+                                </div>
+
+                                <h5 class="mb-3">
+                                    <s class="text-muted me-2 small align-middle">$119</s><span
+                                        class="align-middle">$101</span>
+                                </h5>
+
+                                <p class="text-muted">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Ratione accusantium harum repellendus illo mollitia similique
+                                    atque vitae repudiandae animi dolor? Rem eveniet saepe
+                                    deserunt aliquam. Enim incidunt quas voluptatibus perferendis.
+                                </p>
+
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-borderless mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <th class="ps-0 w-25" scope="row">
+                                                    <strong>Model</strong>
+                                                </th>
+                                                <td>Shirt 5407X</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="ps-0 w-25" scope="row">
+                                                    <strong>Material</strong>
+                                                </th>
+                                                <td>Cotton 80%</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="ps-0 w-25" scope="row">
+                                                    <strong>Delivery</strong>
+                                                </th>
+                                                <td>USA, Europe</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <hr class="my-5" />
+
+                                <form action="">
+                                    <div class="row">
+                                        <!-- Quantity -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="number" id="typeNumber" class="form-control" value="1"
+                                                    min="1" />
+                                                <label class="form-label" for="typeNumber">Quantity</label>
+                                            </div>
+                                        </div>
+                                        <!-- Size -->
+                                        <div class="col-md-6 mb-4">
+                                            <select class="select">
+                                                <option value="1">XS</option>
+                                                <option value="2">S</option>
+                                                <option value="3">M</option>
+                                                <option value="4">L</option>
+                                                <option value="5">XL</option>
+                                            </select>
+                                            <label class="form-label select-label">Size</label>
+                                        </div>
+
+                                        <!-- Colors -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="">
+                                                <input type="radio" class="btn-check" name="options" id="color-primary"
+                                                    autocomplete="off" checked />
+                                                <label class="
+                                              btn btn-primary btn-floating
+                                              me-2
+                                              mb-2
+                                              shadow-0
+                                              " for="color-primary"></label>
+
+                                                <input type="radio" class="btn-check" name="options" id="color-danger"
+                                                    autocomplete="off" />
+                                                <label class="btn btn-danger btn-floating me-2 mb-2 shadow-0"
+                                                    for="color-danger"></label>
+
+                                                <input type="radio" class="btn-check" name="options"
+                                                    id="color-secondary" autocomplete="off" />
+                                                <label class="
+                                              btn btn-secondary btn-floating
+                                              me-2
+                                              mb-2
+                                              shadow-0
+                                              " for="color-secondary"></label>
+
+                                                <input type="radio" class="btn-check" name="options" id="color-success"
+                                                    autocomplete="off" />
+                                                <label class="
+                                              btn btn-success btn-floating
+                                              me-2
+                                              mb-2
+                                              shadow-0
+                                              " for="color-success"></label>
+
+                                                <input type="radio" class="btn-check" name="options" id="color-warning"
+                                                    autocomplete="off" />
+                                                <label class="
+                                              btn btn-warning btn-floating
+                                              me-2
+                                              mb-2
+                                              shadow-0
+                                              " for="color-warning"></label>
+
+                                                <input type="radio" class="btn-check" name="options" id="color-info"
+                                                    autocomplete="off" />
+                                                <label class="btn btn-info btn-floating me-2 mb-2 shadow-0"
+                                                    for="color-info"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary btn-rounded me-2">
+                                        <i class="fas fa-cart-plus me-2"></i>Add to cart
+                                    </button>
+                                    <button href="#!" type="button" class="btn btn-danger btn-floating"
+                                        data-mdb-toggle="tooltip" title="Add to wishlist">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- Details -->
+                        </div>
+                    </div>
+                </section>
+                <!-- Section: Design block -->
+
+            </div>
+
+        </main>
+    </section>
+</body>
+
+</html>

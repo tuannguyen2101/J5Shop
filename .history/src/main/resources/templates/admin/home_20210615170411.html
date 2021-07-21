@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{dashboardLayout.html}">
+
+<head>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var render = new FileReader();
+                render.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                render.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section class="row" layout:fragment="content">
+        <div class="col-6 offset-3 mt-4 mb-5">
+            <form th:action="@{/admin/users/saveOrUpdate}" method="post" th:object="${user}"
+                enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h2 class=" text-light text-center" th:text="${user.isEdit ? 'Edit user' : 'Add new user'}">
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <img id="image"
+                                    th:src="${user.image != null ? '/admin/users/images/' + user.image : '/images/no-image.png'}"
+                                    class="img-fluid" alt="">
+                                <div class="form-group">
+                                    <label for="userImage">Image File</label>
+                                    <input type="file" onchange="chooseFile(this)" class="form-control-file"
+                                        name="imageFile" id="userImage" placeholder="Image user"
+                                        aria-describedby="userImageHId">
+                                    <small id="userImageHId" class="form-text text-muted">User Image is
+                                        required</small>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <input type="hidden" th:field="*{isEdit}">
+                                <div class="form-group" th:if="${user.isEdit}">
+                                    <!-- <label for="userId">User ID</label> -->
+                                    <input type="text" class="form-control" name="userId" id="userId"
+                                        th:field="*{userId}" aria-describedby="userIdHId" placeholder="User ID">
+                                    <small id="userIdHId" class="form-text text-muted">User is
+                                        required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="username">username</label> -->
+                                    <input type="text" class="form-control" name="username" id="username"
+                                        th:field="*{username}" aria-describedby="usernameHId" placeholder="Username">
+                                    <small id="usernameHId" class="form-text text-muted">Username is required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="fullname">FullName</label> -->
+                                    <input type="text" class="form-control" name="fullname" id="fullname"
+                                        th:field="*{fullname}" aria-describedby="fullnameHId" placeholder="Fullname">
+                                    <small id="fullnameHId" class="form-text text-muted">Fullname is required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="email">Email</label> -->
+                                    <input type="email" class="form-control" name="email" id="email" th:field="*{email}"
+                                        aria-describedby="emailHId" placeholder="Email">
+                                    <small id="emailHId" class="form-text text-muted">Email is required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="password">Password</label> -->
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        th:field="*{password}" aria-describedby="passwordHId" placeholder="Password">
+                                    <small id="passwordHId" class="form-text text-muted">Password is required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="phoneNumber">Phone number</label> -->
+                                    <input type="number" class="form-control" name="phoneNumber" id="phoneNumber"
+                                        th:field="*{phoneNumber}" aria-describedby="phoneNumberHId"
+                                        placeholder="Phone number">
+                                    <small id="phoneNumberHId" class="form-text text-muted">Phone number is
+                                        required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="address">Address</label> -->
+                                    <input type="text" class="form-control" name="address" id="address"
+                                        th:field="*{address}" aria-describedby="addressHId" placeholder="Address">
+                                    <small id="addressHId" class="form-text text-muted">Address is required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="registered">Registered</label> -->
+                                    <input type="date" class="form-control" name="registered" id="registered"
+                                        th:field="*{registered}" aria-describedby="registeredHId"
+                                        placeholder="Registered">
+                                    <small id="registeredHId" class="form-text text-muted">Registered is
+                                        required</small>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="status">Status</label> -->
+                                    <select class="form-control" name="status" id="status" th:field="*{status}">
+                                        <option value="0">Activated</option>
+                                        <option value="1">Not activated</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a th:href="@{/admin/users/add}" class="btn btn-success"><i class="fa fa-chain-broken"
+                                aria-hidden="true"></i>New</a>
+                        <button th:if="${user.isEdit ? 'Edit' : 'Save'}" class="btn btn-primary"><i
+                                class="fas fa-save"></i> Save</button>
+                        <a th:if="${user.isEdit}" th:href="@{'/admin/users/delete' + ${user.userId}}"
+                            class="btn btn-danger float-right"><i class="fas fa-recycle"></i> Delete</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

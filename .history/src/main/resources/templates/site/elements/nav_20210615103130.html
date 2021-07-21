@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+</head>
+
+<body>
+    <div th:fragment="nav" class="bg-dark text-center">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/j5shop}">J5Shop</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-auto">
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active mr-3">
+                                <a class="nav-link" th:href="@{/j5shop}">Home<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active mr-3">
+                                <a class="nav-link" th:href="@{/site/home/cart}">Cart<span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-right">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/user/login}">Login<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                |
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

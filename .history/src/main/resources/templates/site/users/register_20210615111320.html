@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/site/dashboardLayout.html}">
+
+<head>
+
+</head>
+
+<body>
+    <section class="row" layout:fragment="content">
+        <div class="container">
+            <div class="col-6 offset-3 mt-4">
+                <!-- Card -->
+                <div class="card shadow">
+                    <div class="card-body pt-4 pb-3 m-3">
+                        <h5 class="text-center mt-1 mb-5">Sign Up</h5>
+                        <form action="#!">
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                                        <label for="materialRegisterFormFirstName">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="md-form md-outline mt-0">
+                                        <input type="email" id="materialRegisterFormLastName" class="form-control">
+                                        <label for="materialRegisterFormLastName">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md-form md-outline mt-0">
+                                <input type="email" id="defaultForm-email2" class="form-control">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email2">Your
+                                    email</label>
+                            </div>
+                            <div class="md-form md-outline mt-0">
+                                <input type="password" id="defaultForm-pass2" class="form-control">
+                                <label data-error="wrong" data-success="right" for="defaultForm-pass2">Your
+                                    password</label>
+                                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                                    At least 8 characters and 1 digit
+                                </small>
+                            </div>
+                            <div class="md-form md-outline">
+                                <input type="number" id="materialRegisterFormPhone" class="form-control"
+                                    aria-describedby="materialRegisterFormPhoneHelpBlock">
+                                <label for="materialRegisterFormPhone">Phone number</label>
+                                <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-3">
+                                    Optional - for two step authentication
+                                </small>
+                            </div>
+                        </form>
+                        <div class="text-center mb-2">
+                            <button type="submit" class="btn btn-primary mb-4">Sign Up</button>
+                            <p>or sign up with:</p>
+                            <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a type="button" class="btn-floating btn-tw btn-sm mr-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a type="button" class="btn-floating btn-li btn-sm mr-1">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a type="button" class="btn-floating btn-git btn-sm">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <hr class="mt-4">
+                            <p>By clicking
+                                <em>Sign up</em> you agree to our
+                                <a href="" target="_blank">terms of service</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

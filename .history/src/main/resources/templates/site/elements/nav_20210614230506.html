@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+</head>
+
+<body>
+    <div th:fragment="nav">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+
+            <a class="navbar-brand" href="#!">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" alt="mdb logo">
+            </a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav1"
+                aria-controls="basicExampleNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Links -->
+            <div style="float: right;">
+                
+            
+            <div class="collapse navbar-collapse" id="basicExampleNav1">
+
+                <!-- Right -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link navbar-link-2 waves-effect">
+                            <span class="badge badge-pill red"></span>
+                            <i class="fas fa-shopping-cart pl-0"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link waves-effect">
+                            Cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link waves-effect">
+                            Shop
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link waves-effect">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link waves-effect">
+                            Sign in
+                        </a>
+                    </li>
+                    <li class="nav-item pl-2 mb-2 mb-md-0">
+                        <a href="#!" type="button"
+                            class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign
+                            up</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        </div>
+            <!-- Links -->
+
+        </nav>
+        <!-- Navbar -->
+    </div>
+</body>
+
+</html>

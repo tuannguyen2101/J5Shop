@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/site/dashboardLayout.html}">
+
+<head>
+    <script>
+        function chooseFile(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var render = new FileReader();
+                render.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                render.readAsDataURL(fileInput.files[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section layout:fragment="content">
+        <div class="container my-5 py-5">
+            <!-- Section: Design block -->
+            <section class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <!-- Gallery -->
+                        <div class="ecommerce-gallery vertical" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="lightbox">
+                                        <img id="image"
+                                            th:src="${product.image != null ? '/admin/products/images/' + product.image : '/images/no-image.png'}"
+                                            class="img-fluid" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gallery -->
+                    </div>
+
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <!-- Details -->
+                        <div>
+                            <h1 class="fw-bold mb-3 h5" th:text="${product.name}"></h1>
+                            <p class="mb-2 text-uppercase small">Dresses</p>
+
+                            
+                            <div class="table-responsive">
+                                <table class="table table-sm table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <h5>Price</h5>
+                                            </th>
+                                            <td><h5 class="mb-3">
+
+                                                <span class="align-middle" th:text="${'&#36;' + (product.unitPrice - (product.unitPrice * product.discount / 100))}"></span>
+                                            </h5></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>Discount</strong>
+                                            </th>
+                                            <td th:text="${product.discount + '%'}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>available</strong>
+                                            </th>
+                                            <td th:text="${product.quantity + ' item'}"></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 w-25" scope="row">
+                                                <strong>Delivery</strong>
+                                            </th>
+                                            <td><p class="text-muted" th:text="${product.description}"></p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            
+                            <hr class="my-5" />
+                            
+                            <form action="">
+                                <a type="button" class="btn btn-primary btn-rounded me-2 bg-dark text-light">
+                                    <i class="fas fa-cart-plus me-2"></i>Add to cart
+                                </a>
+                                <button href="#!" type="button" class="btn btn-danger btn-floating"
+                                    data-mdb-toggle="tooltip" title="Add to wishlist">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- Details -->
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Design block -->
+
+            <!--Section: Block Content-->
+<section class="text-center">
+
+    <!-- Grid row -->
+    <div class="row">
+  
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-3 mb-5">
+  
+        <!-- Card -->
+        <div class="">
+  
+          <div class="view zoom overlay z-depth-2 rounded">
+            <img class="img-fluid w-100"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg" alt="Sample">
+            <a href="#!">
+              <div class="mask">
+                <img class="img-fluid w-100"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+            </a>
+          </div>
+  
+          <div class="pt-4">
+  
+            <h5>Fantasy T-shirt</h5>
+            <h6>12.99 $</h6>
+          </div>
+  
+        </div>
+        <!-- Card -->
+  
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-3 mb-5">
+  
+        <!-- Card -->
+        <div class="">
+  
+          <div class="view zoom overlay z-depth-2 rounded">
+            <img class="img-fluid w-100"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg" alt="Sample">
+            <a href="#!">
+              <div class="mask">
+                <img class="img-fluid w-100"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+            </a>
+          </div>
+  
+          <div class="pt-4">
+  
+            <h5>Fantasy T-shirt</h5>
+            <h6>12.99 $</h6>
+  
+          </div>
+  
+        </div>
+        <!-- Card -->
+  
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-3 mb-5">
+  
+        <!-- Card -->
+        <div class="">
+  
+          <div class="view zoom overlay z-depth-2 rounded">
+            <img class="img-fluid w-100"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg" alt="Sample">
+            <h4 class="mb-0"><span class="badge badge-primary badge-pill badge-news">Sale</span></h4>
+            <a href="#!">
+              <div class="mask">
+                <img class="img-fluid w-100"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+            </a>
+          </div>
+  
+          <div class="pt-4">
+  
+            <h5>Fantasy T-shirt</h5>
+            <h6>
+              <span class="text-danger mr-1">$12.99</span>
+              <span class="text-grey"><s>$36.99</s></span>
+            </h6>
+  
+          </div>
+  
+        </div>
+        <!-- Card -->
+  
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-md-6 col-lg-3 mb-5">
+  
+        <!-- Card -->
+        <div class="">
+  
+          <div class="view zoom overlay z-depth-2 rounded">
+            <img class="img-fluid w-100"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg" alt="Sample">
+            <h4 class="mb-0"><span class="badge badge-primary badge-pill badge-news">Sale</span></h4>
+            <a href="#!">
+              <div class="mask">
+                <img class="img-fluid w-100"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+            </a>
+          </div>
+  
+          <div class="pt-4">
+  
+            <h5>Fantasy T-shirt</h5>
+            <h6>
+              <span class="text-danger mr-1">$12.99</span>
+              <span class="text-grey"><s>$36.99</s></span>
+            </h6>
+  
+          </div>
+  
+        </div>
+        <!-- Card -->
+  
+      </div>
+      <!-- Grid column -->
+  
+    </div>
+    <!-- Grid row -->
+  
+  </section>
+  <!--Section: Block Content-->
+        </div>
+        
+
+        </main>
+    </section>
+</body>
+
+</html>
